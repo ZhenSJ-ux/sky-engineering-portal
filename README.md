@@ -10,8 +10,6 @@ Open browser and putin this http://localhost:8000
 
 URL 
 
-View 
-
 http://localhost:8000/ 
 
 View dashboard  
