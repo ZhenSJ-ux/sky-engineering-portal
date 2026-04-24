@@ -7,7 +7,7 @@ Menu Item- Team
 Display all Teams, search , Email Team, Schedule meeting , skills, dependencies (Upstream and DownStream)
 
 ## How to start:
-Open browser and put in this http://localhost:8000 
+Open browser and open http://localhost:8000 
 
 ## URL structure:
 
