@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="detail-card">
+    <h1>Welcome to Sky Teams Portal</h1>
+    <p>Total Teams: {{ team_count }}</p>
+    <p>Total Meetings: {{ meeting_count }}</p>
+
+    <p>This is your dashboard homepage.</p>
+
+    <div class="link-row">
+        <a href="{% url 'team_list' %}" class="btn">Go to Teams</a>
+    </div>
+</div>
+{% endblock %}
