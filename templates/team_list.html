@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="page-title">Teams</h1>
+
+<form method="GET" class="search-row">
+    <input type="text" name="q" placeholder="Search teams..." value="{{ query }}">
+    <button type="submit">Search</button>
+</form>
+
+<div class="team-grid">
+    {% for team in teams %}
+        <a href="{% url 'team_detail' team.id %}" class="team-card">
+            <h3>{{ team.name }}</h3>
+            <div class="dept">{{ team.department }}</div>
+            <p><strong>Leader:</strong> {{ team.manager_name }}</p>
+            <p><strong>Email:</strong> {{ team.manager_email }}</p>
+        </a>
+    {% empty %}
+        <p class="empty">No teams added yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}
