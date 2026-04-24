@@ -3,6 +3,7 @@
 5COSC021W Coursework | student id: w2086907 | student name: Shijie Zheng
 
 ## student role: student 1
+Menu Item- Team
 Display all Teams, search , Email Team, Schedule meeting , skills, dependencies (Upstream and DownStream)
 
 ## How to start:
