@@ -10,30 +10,28 @@ Display all Teams, search , Email Team, Schedule meeting , skills, dependencies 
 Open browser and open http://localhost:8000 
 
 ## URL structure:
-
+View dashboard 
 http://localhost:8000/ 
 
-View dashboard  
-
+View all team 
 http://localhost:8000/teams/ 
 
-View all team  
-
+View team profile with skill and dependency 
 http://localhost:8000/teams/1/ 
 
-View team profile with skill and dependency 
-
+View team email
 http://localhost:8000/teams/1/email/ 
 
-View team email 
-
+View team schedule 
 http://localhost:8000/teams/1/schedule/ 
 
-View team schedule 
-
-http://localhost:8000/admin/ 
+view team members
+http://localhost:8000/teams/2/members/
 
 Django admin panel 
+http://localhost:8000/admin/ 
+
+
 
  
 
