@@ -86,4 +86,9 @@ def home(request):
         'meeting_count': meeting_count
     })
 
-
+def team_members(request, team_id):
+    team = get_object_or_404(Team, id=team_id)
+    return render(request, 'team_members.html', {
+        'team': team,
+        'page_title': f'{team.name} Members',
+    })

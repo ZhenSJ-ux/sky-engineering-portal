@@ -9,4 +9,5 @@ urlpatterns = [
     path('teams/<int:team_id>/', views.team_detail, name='team_detail'),
     path('teams/<int:team_id>/email/', views.email_team, name='email_team'),
     path('teams/<int:team_id>/schedule/', views.schedule_meeting, name='schedule_meeting'),
+    path('teams/<int:team_id>/members/', views.team_members, name='team_members'),
 ]

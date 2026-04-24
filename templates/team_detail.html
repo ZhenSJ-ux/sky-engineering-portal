@@ -2,22 +2,24 @@
 
 {% block content %}
 
-<div class="detail-card">
+<div class="detail-card team-info-card">
+    <h1>{{ team.name }}</h1>
 
-    <h1 class="page-title">{{ team.name }}</h1>
-
-    <p><strong>Department:</strong> {{ team.department }}</p>
-    <p><strong>Manager:</strong> {{ team.manager_name }}</p>
-    <p><strong>Email:</strong> {{ team.manager_email }}</p>
-    <p><strong>Purpose:</strong> {{ team.purpose }}</p>
-    <p><strong>Description:</strong> {{ team.description }}</p>
+    <div class="team-meta">
+        <p><strong>Department:</strong> {{ team.department }}</p>
+        <p><strong>Manager:</strong> {{ team.manager_name }}</p>
+        <p><strong>Email:</strong> {{ team.manager_email }}</p>
+        <p><strong>Purpose:</strong> {{ team.purpose }}</p>
+        <p><strong>Description:</strong> {{ team.description }}</p>
+    </div>
 
     <div class="link-row">
+        <a href="{% url 'team_members' team.id %}" class="btn">👥 View Members</a>
         <a href="{% url 'email_team' team.id %}" class="btn">📧 Email Team</a>
         <a href="{% url 'schedule_meeting' team.id %}" class="btn">📅 Schedule Meeting</a>
     </div>
 
-    <h3 class="section-title">Skills</h3>
+    <h2 class="section-title">Skills</h2>
     <ul class="clean-list">
         {% for skill in team.skills.all %}
             <li>{{ skill.name }}</li>
@@ -26,7 +28,7 @@
         {% endfor %}
     </ul>
 
-    <h3 class="section-title">Depends On (Upstream)</h3>
+    <h2 class="section-title">Depends On (Upstream)</h2>
     <ul class="clean-list">
         {% for dep in team.outgoing_dependencies.all %}
             <li>{{ dep.to_team.name }}</li>
@@ -35,7 +37,7 @@
         {% endfor %}
     </ul>
 
-    <h3 class="section-title">Depended On By (Downstream)</h3>
+    <h2 class="section-title">Depended On By (Downstream)</h2>
     <ul class="clean-list">
         {% for dep in team.incoming_dependencies.all %}
             <li>{{ dep.from_team.name }}</li>
@@ -44,7 +46,7 @@
         {% endfor %}
     </ul>
 
-    <h3 class="section-title">Meetings</h3>
+    <h2 class="section-title">Meetings</h2>
     <ul class="clean-list">
         {% for meeting in team.meetings.all %}
             <li>
@@ -56,10 +58,9 @@
         {% endfor %}
     </ul>
 
-    <p style="margin-top:20px;">
+    <div class="link-row">
         <a href="{% url 'team_list' %}" class="btn">← Back to Teams</a>
-    </p>
-
+    </div>
 </div>
 
 {% endblock %}

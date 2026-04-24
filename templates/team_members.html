@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="team-summary-card">
+    <div>
+        <h3>Team Name</h3>
+        <p>{{ team.name }}</p>
+    </div>
+
+    <div>
+        <h3>Team Leader</h3>
+        <p>{{ team.manager_name }}</p>
+    </div>
+
+    <div>
+        <h3>Members</h3>
+        <p>{{ team.members.count }}</p>
+    </div>
+</div>
+
+<div class="member-grid">
+    {% for member in team.members.all %}
+        <div class="member-card">
+            <h3>{{ member.name }}</h3>
+            <p>{{ member.role }}</p>
+            <p class="occupation"><strong>Occupation:</strong> {{ member.occupation }}</p>
+        </div>
+    {% empty %}
+        <div class="member-card">
+            <h3>No members added.</h3>
+        </div>
+    {% endfor %}
+</div>
+
+<a href="{% url 'team_detail' team.id %}" class="btn">← Back to Team Details</a>
+{% endblock %}

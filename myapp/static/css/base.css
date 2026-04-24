@@ -143,4 +143,60 @@ ul.clean-list {
 
 
 
+.team-detail-wrapper {
+    max-width: 1150px;
+}
+
+.team-summary-card {
+    background: white !important;
+    border-radius: 14px !important;
+    padding: 18px 22px !important;
+    margin-bottom: 24px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 100px !important;
+    align-items: center !important;
+    gap: 30px !important;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12) !important;
+}
+
+.team-summary-card h3 {
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.team-summary-card p {
+    font-size: 14px;
+}
+
+.member-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(180px, 1fr)) !important;
+    gap: 24px !important;
+    margin-bottom: 28px !important;
+}
+
+.member-card {
+    background: white !important;
+    border-radius: 14px !important;
+    padding: 18px !important;
+    min-height: 130px !important;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12) !important;
+}
+
+.member-card h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.member-card .occupation {
+    margin-top: 34px;
+}
+
+
+
+
+
+
+
+
 

@@ -46,4 +46,14 @@ class Meeting(models.Model):
 
     def __str__(self):
         return f"{self.title} ({self.team.name})"
+        
+
+class TeamMember(models.Model):
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='members')
+    name = models.CharField(max_length=100)
+    role = models.CharField(max_length=100)
+    occupation = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return f"{self.name} ({self.team.name})"
 
