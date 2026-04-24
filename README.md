@@ -2,13 +2,13 @@
 
 5COSC021W Coursework | student id: w2086907 | student name: Shijie Zheng
 
+## student role: student 1
+Display all Teams, search , Email Team, Schedule meeting , skills, dependencies (Upstream and DownStream)
+
 ## How to start:
 Open browser and putin this http://localhost:8000 
 
 ## URL structure:
-
-
-URL 
 
 http://localhost:8000/ 
 
