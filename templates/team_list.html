@@ -1,23 +1,31 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} <!-- uses base layout template -->
 
-{% block content %}
-<h1 class="page-title">Teams</h1>
+{% block content %} <!-- content inserted into base.html -->
 
+<h1 class="page-title">Teams</h1> <!-- page heading -->
+<!-- search form (uses GET so query appears in URL) -->
 <form method="GET" class="search-row">
     <input type="text" name="q" placeholder="Search teams..." value="{{ query }}">
-    <button type="submit">Search</button>
+    
+    <!-- input field keeps previous search value -->
+    <button type="submit">Search</button> <!-- submits search request -->
 </form>
-
+<!-- grid layout for displaying teams -->
 <div class="team-grid">
-    {% for team in teams %}
+
+    {% for team in teams %} <!-- loops through all teams passed from view -->
+        <!-- clickable card linking to team detail page -->
         <a href="{% url 'team_detail' team.id %}" class="team-card">
-            <h3>{{ team.name }}</h3>
-            <div class="dept">{{ team.department }}</div>
-            <p><strong>Leader:</strong> {{ team.manager_name }}</p>
-            <p><strong>Email:</strong> {{ team.manager_email }}</p>
+
+            <h3>{{ team.name }}</h3> <!-- displays team name -->
+            <div class="dept">{{ team.department }}</div> <!-- displays department -->
+
+            <p><strong>Leader:</strong> {{ team.manager_name }}</p> <!-- shows manager -->
+            <p><strong>Email:</strong> {{ team.manager_email }}</p> <!-- shows email -->
+
         </a>
-    {% empty %}
+    {% empty %} <!-- shown if no teams exist -->
         <p class="empty">No teams added yet.</p>
     {% endfor %}
 </div>
-{% endblock %}
+{% endblock %} <!-- end content block -->

@@ -1,70 +1,90 @@
 
-/*light/darkmode*/
+/* theme toggle button*/
+
+/* styles the theme toggle button (moon/sun icon) */
 .icon-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
+    background: none; /* removes default button background */
+    border: none; /* removes border */
+    cursor: pointer; /* shows pointer on hover */
+    font-size: 20px; /* increases icon size */
 }
 
-/* Default light mode already uses your normal styles */
+/* light mode */
 
-/* Dark mode */
+/* default light mode uses the normal styles already defined */
+
+/* dark mode */
+
+/* applies dark mode when 'dark-mode' class is added to body */
 body.dark-mode {
-    background: #181818;
-    color: #f5f5f5;
+    background: #181818; /* dark background */
+    color: #f5f5f5; /* light text for contrast */
 }
 
+/* sidebar in dark mode */
 body.dark-mode .sidebar {
-    background: #202020;
-    border-right: 1px solid #333;
+    background: #202020; /* darker panel */
+    border-right: 1px solid #333; /* subtle divider */
 }
 
+/* top navigation bar in dark mode */
 body.dark-mode .topbar {
     background: #202020;
     border-bottom: 1px solid #333;
 }
 
+/* main content background */
 body.dark-mode .content {
     background: #181818;
 }
 
+/* cards (team cards, detail cards) */
 body.dark-mode .detail-card,
 body.dark-mode .team-card {
-    background: #242424;
+    background: #242424; /* dark card background */
     color: #f5f5f5;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.35); /* stronger shadow for contrast */
 }
 
+/* sidebar links */
 body.dark-mode .sidebar nav a {
     color: #f5f5f5;
 }
 
+/* hover/active links */
 body.dark-mode .sidebar nav a:hover,
 body.dark-mode .sidebar nav a.active {
     background: #333;
 }
 
+/* input fields and forms */
 body.dark-mode .top-search,
 body.dark-mode .search-row input,
 body.dark-mode .form-group input,
 body.dark-mode .form-group textarea,
 body.dark-mode .form-group select {
-    background: #2c2c2c;
-    color: #fff;
-    border: 1px solid #444;
+    background: #2c2c2c; /* dark input background */
+    color: #fff; /* white text */
+    border: 1px solid #444; /* visible border */
 }
 
+/* secondary text (less emphasis) */
 body.dark-mode .dept,
 body.dark-mode .empty {
-    color: #bbb;
+    color: #bbb; /* softer grey */
 }
 
+/* buttons */
 body.dark-mode .btn {
-    background: #6c8cff;
+    background: #6c8cff; /* keeps consistent brand colour */
     color: white;
 }
 
+/* links */
 body.dark-mode a {
-    color: #9db8ff;
+    color: #9db8ff; /* lighter blue for visibility */
 }
+
+
+
+

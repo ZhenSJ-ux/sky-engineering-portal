@@ -1,20 +1,23 @@
-/* This is the team list css part*/
+/* team list search */
 
+/* container for search bar + button */
 .search-row {
-    margin-bottom: 24px;
-    display: flex;
-    gap: 10px;
+    margin-bottom: 24px; /* space below search */
+    display: flex; /* horizontal layout */
+    gap: 10px; /* space between input and button */
 }
 
+/* search input field */
 .search-row input {
-    width: 320px;
-    padding: 12px 14px;
-    border: 1px solid #ccc;
-    border-radius: 12px;
+    width: 320px; /* fixed width */
+    padding: 12px 14px; /* internal spacing */
+    border: 1px solid #ccc; /* light border */
+    border-radius: 12px; /* rounded edges */
 }
 
+/* search button */
 .search-row button {
-    background: #7fb0ff;
+    background: #7fb0ff; /* light blue */
     border: none;
     color: #111;
     padding: 12px 18px;
@@ -22,140 +25,131 @@
     cursor: pointer;
 }
 
+/* grid for team */
+
+/* grid layout for team cards */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, minmax(250px, 1fr)); /* 3 responsive columns */
+    gap: 20px; /* spacing between cards */
     width: 100%;
 }
 
+/* individual team card */
 .team-card {
     display: block;
     width: 100%;
-    text-decoration: none;
-    color: inherit;
+    text-decoration: none; /* removes link underline */
+    color: inherit; /* inherits text colour */
     background: white;
     border-radius: 16px;
     padding: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    min-height: 180px;
-    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* soft shadow */
+    min-height: 180px; /* consistent card size */
+    transition: all 0.25s ease; /* smooth hover animation */
 }
 
+/* hover effect for card */
 .team-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(-6px); /* lifts card */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* stronger shadow */
 }
 
+/* team name */
 .team-card h3 {
     margin-bottom: 8px;
     font-size: 22px;
-    color: #5a2ca0;
+    color: #5a2ca0; /* accent colour */
 }
 
+/* underline title on hover */
 .team-card:hover h3 {
     text-decoration: underline;
 }
 
+/* department text */
 .team-card .dept {
-    color: #666;
+    color: #666; /* lighter text */
     margin-bottom: 18px;
 }
 
+/* paragraph spacing inside cards */
 .team-card p {
     margin-bottom: 8px;
 }
 
+/* responsive deisgn */
+
+/* tablet view */
 @media (max-width: 1100px) {
     .team-grid {
-        grid-template-columns: repeat(2, minmax(250px, 1fr));
+        grid-template-columns: repeat(2, minmax(250px, 1fr)); /* 2 columns */
     }
 }
 
+/* mobile view */
 @media (max-width: 700px) {
     .team-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* single column */
     }
 }
 
-/* Form styling */ 
+/* form styling */
 
-.styled-form { 
+/* form container */
+.styled-form {
+    max-width: 600px; /* keeps form compact */
+}
 
-    max-width: 600px; 
+/* spacing between form fields */
+.form-group {
+    margin-bottom: 18px;
+}
 
-} 
+/* labels */
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
 
-.form-group { 
+/* inputs and textarea */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
 
-    margin-bottom: 18px; 
+/* buttons */
 
-} 
+/* general button styling */
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: #6c8cff;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
 
+/* hover effect */
+.btn:hover {
+    background: #4f6de0;
+}
 
-.form-group label { 
+/* button rows */
 
-    display: block; 
-
-    font-weight: 600; 
-
-    margin-bottom: 6px; 
-
-} 
-
+/* container for buttons */
+.link-row {
+    margin-top: 20px;
+}
  
-.form-group input, 
-
-.form-group textarea { 
-
-    width: 100%; 
-
-    padding: 12px; 
-
-    border-radius: 10px; 
-
-    border: 1px solid #ccc; 
-
-    font-size: 15px; 
-
-} 
-
- 
-
-/* Buttons */ 
-
-.btn { 
-
-    display: inline-block; 
-    padding: 10px 16px; 
-    border-radius: 10px; 
-    background: #6c8cff; 
-    color: white; 
-    text-decoration: none; 
-    border: none; 
-    cursor: pointer; 
-    margin-right: 10px; 
-} 
-
- 
-.btn:hover { 
-
-    background: #4f6de0; 
-
-} 
-
- 
-
-/* Button row */ 
-
-.link-row { 
-
-    margin-top: 20px; 
-
-} 
-
-
-/* added team members */ 
 
 
 

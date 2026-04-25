@@ -49,22 +49,23 @@
     <script>
     const toggleBtn = document.getElementById('theme-toggle');
     if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
+        document.body.classList.add('dark-mode');   //applys darkmode 
         if (toggleBtn) {
-            toggleBtn.textContent = '☀️';
+            toggleBtn.textContent = '☀️';  //changes the icon to sun 
         }
     }
 
+    // able to click event to toggle theme
     if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-
+            document.body.classList.toggle('dark-mode');  // this will switch the theme
+            // this will save the preference and changes the icon 
             if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-                toggleBtn.textContent = '☀️';
+                localStorage.setItem('theme', 'dark'); // saves the dark mode
+                toggleBtn.textContent = '☀️'; // when saves dark mode it will change icon to sun 
             } else {
-                localStorage.setItem('theme', 'light');
-                toggleBtn.textContent = '🌙';
+                localStorage.setItem('theme', 'light'); // saves the light mode
+                toggleBtn.textContent = '🌙'; // when saves ligh mode it will change icon to moon 
             }
         });
     }

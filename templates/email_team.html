@@ -1,28 +1,33 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} <!-- this uses the base template layout to be the inheritance-->
 
-{% block content %}
-<div class="detail-card">
-    <h1 class="page-title">Email Team</h1>
+{% block content %}  <!-- starts the content section to make into base.html -->
+<div class="detail-card"><!-- container card for styling the page-->
+    <h1 class="page-title">Email Team</h1> 
 
-    <p style="margin-bottom: 8px;">Team: <strong>{{ team.name }}</strong></p>
+    <!-- displays selected team name -->
+    <p style="margin-bottom: 8px;">Team: <strong>{{ team.name }}</strong></p> 
+
+    <!-- shows which email the message will be sent to -->
     <p style="margin-bottom: 20px;">Email will be sent to: <strong>{{ team.manager_email }}</strong></p>
 
-    <form method="post" class="styled-form">
-        {% csrf_token %}
+    <!-- form for sending email -->
+    <form method="post" class="styled-form"> <!-- secure the send data using post -->
+        {% csrf_token %}<!-- prevent csrf attacks-->
 
+        <!-- input field-->
         <div class="form-group">
-            <label for="{{ form.subject.id_for_label }}">Subject</label>
-            {{ form.subject }}
+            <label for="{{ form.subject.id_for_label }}">Subject</label><!--links the label to input-->
+            {{ form.subject }}<!-- render the input from django-->
         </div>
-
+        <!-- message input-->
         <div class="form-group">
-            <label for="{{ form.message.id_for_label }}">Message</label>
-            {{ form.message }}
+            <label for="{{ form.message.id_for_label }}">Message</label><!--label textarea-->
+            {{ form.message }}<!-- render the messages-->
         </div>
-
+        <!-- button section-->
         <div class="link-row">
-            <button type="submit" class="btn">Send Email</button>
-            <a href="{% url 'team_detail' team.id %}" class="btn">Back</a>
+            <button type="submit" class="btn">Send Email</button><!-- submits form-->
+            <a href="{% url 'team_detail' team.id %}" class="btn">Back</a><!-- goes back to team detail-->
         </div>
     </form>
 </div>

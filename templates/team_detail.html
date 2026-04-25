@@ -1,54 +1,55 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %}<!-- this uses the base template -->
 
-{% block content %}
+{% block content %}<!-- content section inserted into base.html -->
 
-<div class="detail-card team-info-card">
-    <h1>{{ team.name }}</h1>
+<div class="detail-card team-info-card"> <!-- style container for team detail -->
+    <h1>{{ team.name }}</h1> <!-- displays team name -->
 
+    <!-- team metadata section -->
     <div class="team-meta">
-        <p><strong>Department:</strong> {{ team.department }}</p>
-        <p><strong>Manager:</strong> {{ team.manager_name }}</p>
-        <p><strong>Email:</strong> {{ team.manager_email }}</p>
-        <p><strong>Purpose:</strong> {{ team.purpose }}</p>
-        <p><strong>Description:</strong> {{ team.description }}</p>
+        <p><strong>Department:</strong> {{ team.department }}</p><!--shows department -->
+        <p><strong>Manager:</strong> {{ team.manager_name }}</p><!--shows manager -->
+        <p><strong>Email:</strong> {{ team.manager_email }}</p><!--shows manager email -->
+        <p><strong>Purpose:</strong> {{ team.purpose }}</p><!--shows purpose of team -->
+        <p><strong>Description:</strong> {{ team.description }}</p><!--shows ream description-->
     </div>
-
+    <!--quick action buttons -->
     <div class="link-row">
-        <a href="{% url 'team_members' team.id %}" class="btn">👥 View Members</a>
-        <a href="{% url 'email_team' team.id %}" class="btn">📧 Email Team</a>
-        <a href="{% url 'schedule_meeting' team.id %}" class="btn">📅 Schedule Meeting</a>
+        <a href="{% url 'team_members' team.id %}" class="btn">👥 View Members</a><!--link with member -->
+        <a href="{% url 'email_team' team.id %}" class="btn">📧 Email Team</a><!--link with email -->
+        <a href="{% url 'schedule_meeting' team.id %}" class="btn">📅 Schedule Meeting</a><!--link with schedule meeting-->
     </div>
-
+    <!--skill section -->
     <h2 class="section-title">Skills</h2>
     <ul class="clean-list">
-        {% for skill in team.skills.all %}
-            <li>{{ skill.name }}</li>
-        {% empty %}
+        {% for skill in team.skills.all %}<!-- loops through related skills -->
+            <li>{{ skill.name }}</li><!-- displays skill name -->
+        {% empty %}<!-- runs if no skills exist -->
             <li class="empty">No skills added.</li>
         {% endfor %}
     </ul>
-
+    <!-- upstream dependencies (teams this team depends on) -->
     <h2 class="section-title">Depends On (Upstream)</h2>
     <ul class="clean-list">
-        {% for dep in team.outgoing_dependencies.all %}
-            <li>{{ dep.to_team.name }}</li>
+        {% for dep in team.outgoing_dependencies.all %}<!-- loops through outgoing dependencies -->
+            <li>{{ dep.to_team.name }}</li><!-- shows the team this depends on -->
         {% empty %}
             <li class="empty">No dependencies.</li>
         {% endfor %}
     </ul>
-
+    <!-- downstream dependencies (teams depending on this team) -->
     <h2 class="section-title">Depended On By (Downstream)</h2>
     <ul class="clean-list">
-        {% for dep in team.incoming_dependencies.all %}
-            <li>{{ dep.from_team.name }}</li>
+        {% for dep in team.incoming_dependencies.all %}<!-- loops through incoming dependencies -->
+            <li>{{ dep.from_team.name }}</li><!-- shows teams that depend on this -->
         {% empty %}
             <li class="empty">No teams depend on this.</li>
         {% endfor %}
     </ul>
-
+    <!-- meetings section -->
     <h2 class="section-title">Meetings</h2>
     <ul class="clean-list">
-        {% for meeting in team.meetings.all %}
+        {% for meeting in team.meetings.all %} <!-- loops through related meetings -->
             <li>
                 {{ meeting.title }} - {{ meeting.date }} {{ meeting.time }}
                 {% if meeting.platform %} ({{ meeting.platform }}){% endif %}
@@ -57,7 +58,7 @@
             <li class="empty">No meetings scheduled.</li>
         {% endfor %}
     </ul>
-
+    <!-- back navigation -->
     <div class="link-row">
         <a href="{% url 'team_list' %}" class="btn">← Back to Teams</a>
     </div>

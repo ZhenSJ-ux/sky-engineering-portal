@@ -1,38 +1,38 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %}<!-- this uses the base template -->
 
-{% block content %}
-<div class="detail-card">
+{% block content %} <!-- content section inserted into base.html -->
+<div class="detail-card"> <!-- style the container -->
     <h1 class="page-title">Schedule Meeting</h1>
-    <p style="margin-bottom: 20px;">Team: <strong>{{ team.name }}</strong></p>
+    <p style="margin-bottom: 20px;">Team: <strong>{{ team.name }}</strong></p><!-- display selected team name-->
 
-    <form method="post" class="styled-form">
-        {% csrf_token %}
-
+    <form method="post" class="styled-form"><!-- creates the meeting in schedule -->
+        {% csrf_token %} <!-- prevent csrf attacks-->
+        <!-- meeting title input -->
         <div class="form-group">
-            <label for="{{ form.title.id_for_label }}">Title</label>
-            {{ form.title }}
+            <label for="{{ form.title.id_for_label }}">Title</label><!-- links the label to input -->
+            {{ form.title }}<!-- renders the field -->
         </div>
-
+        <!-- meeting date input -->
         <div class="form-group">
             <label for="{{ form.date.id_for_label }}">Date</label>
             {{ form.date }}
         </div>
-
+        <!-- meeting time input -->
         <div class="form-group">
             <label for="{{ form.time.id_for_label }}">Time</label>
             {{ form.time }}
         </div>
-
+        <!-- meeting platform input -->
         <div class="form-group">
             <label for="{{ form.platform.id_for_label }}">Platform</label>
             {{ form.platform }}
         </div>
-
+        <!-- meeting message input -->
         <div class="form-group">
             <label for="{{ form.message.id_for_label }}">Message</label>
             {{ form.message }}
         </div>
-
+        
         <div class="link-row">
             <button type="submit" class="btn">Save Meeting</button>
             <a href="{% url 'team_detail' team.id %}" class="btn">Back</a>

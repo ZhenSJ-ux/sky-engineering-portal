@@ -1,36 +1,48 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} <!-- uses base layout template -->
 
-{% block content %}
-<div class="team-summary-card">
+{% block content %} <!-- content inserted into base.html -->
+
+<!-- summary section for key team info -->
+<div class="team-summary-card detail-card">
+
     <div>
         <h3>Team Name</h3>
-        <p>{{ team.name }}</p>
+        <p>{{ team.name }}</p> <!-- displays team name -->
     </div>
-
     <div>
         <h3>Team Leader</h3>
-        <p>{{ team.manager_name }}</p>
+        <p>{{ team.manager_name }}</p> <!-- displays team manager -->
     </div>
-
     <div>
         <h3>Members</h3>
-        <p>{{ team.members.count }}</p>
+        <p>{{ team.members.count }}</p> <!-- shows total number of members -->
     </div>
 </div>
 
+<!-- grid displaying team members -->
 <div class="member-grid">
-    {% for member in team.members.all %}
-        <div class="member-card">
-            <h3>{{ member.name }}</h3>
-            <p>{{ member.role }}</p>
-            <p class="occupation"><strong>Occupation:</strong> {{ member.occupation }}</p>
+
+    {% for member in team.members.all %} <!-- loops through related members -->
+
+        <div class="member-card detail-card">
+
+            <h3>{{ member.name }}</h3> <!-- displays member name -->
+            <p>{{ member.role }}</p> <!-- displays role in team -->
+
+            <!-- shows occupation (extra detail about member) -->
+            <p class="occupation">
+                <strong>Occupation:</strong> {{ member.occupation }}
+            </p>
+
         </div>
-    {% empty %}
-        <div class="member-card">
+    {% empty %} <!-- shown if no members exist -->
+        <div class="member-card detail-card">
             <h3>No members added.</h3>
         </div>
     {% endfor %}
 </div>
-
-<a href="{% url 'team_detail' team.id %}" class="btn">← Back to Team Details</a>
-{% endblock %}
+<!-- navigation back to team details -->
+<a href="{% url 'team_detail' team.id %}" class="btn">
+    ← Back to Team Details
+</a>
+{% endblock %} <!-- end content block -->
