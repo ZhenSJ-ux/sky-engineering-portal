@@ -27,15 +27,27 @@ body {
 }
 
 /* logo styling */
+/* logo styling */
 .logo {
-    font-size: 40px; /* large text */
+    display: block;                 /* 🔥 makes <a> behave like div */
+    font-size: 40px;
     font-weight: bold;
+
     margin-bottom: 30px;
+    padding-left: 6px;              /* 🔥 aligns with sidebar items */
+    padding-top: 4px;
+
+    text-decoration: none;
+    cursor: pointer;
 
     /* gradient text effect */
     background: linear-gradient(90deg, #ff4f8b, #8a5cff, #ff9f55);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.logo:hover {
+    opacity: 0.85;
 }
 
 /* navigation layout */
@@ -157,7 +169,7 @@ ul.clean-list {
     font-style: italic;
 }
 
-/* ================= TEAM DETAILS PAGE ================= */
+/* team detail page */
 
 /* wrapper for team details */
 .team-detail-wrapper {
@@ -215,6 +227,32 @@ ul.clean-list {
 .member-card .occupation {
     margin-top: 34px;
 }
+
+
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.big-number {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+
+
+
 
 
 

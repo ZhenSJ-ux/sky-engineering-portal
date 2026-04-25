@@ -4,7 +4,7 @@ from django.db.models import Q # imports Q to allow advanced search using OR con
 from django.core.mail import send_mail # imports Django email function
 from .models import Team, Meeting # imports database models
 from .forms import EmailTeamForm, MeetingForm # imports forms used for email and meetings
-
+from django.utils.timezone import now
 
 # displays the about page
 def about(request):
@@ -122,4 +122,16 @@ def team_members(request, team_id):
     return render(request, 'team_members.html', {
         'team': team,
         'page_title': f'{team.name} Members',
+    })
+
+
+def dashboard(request):
+    teams = Team.objects.count()
+    meetings = Meeting.objects.count()
+    upcoming_meetings = Meeting.objects.filter(date__gte=now()).order_by('date')[:3]
+
+    return render(request, 'home.html', {
+        'team_count': teams,
+        'meeting_count': meetings,
+        'upcoming_meetings': upcoming_meetings
     })

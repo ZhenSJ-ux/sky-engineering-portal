@@ -17,7 +17,7 @@
 <body>
     <div class="layout"> <!-- Main layout wrapper -->
         <aside class="sidebar"><!-- Sidebar navigation -->
-            <div class="logo">sky</div><!-- Logo text -->
+            <a href="{% url 'home' %}" class="logo">sky</a><!-- Logo text -->
             <nav>
                 <!-- Navigation links with active highlighting based on current URL -->
                 <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Dashboard</a>

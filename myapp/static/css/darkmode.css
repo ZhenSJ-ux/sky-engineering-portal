@@ -87,4 +87,10 @@ body.dark-mode a {
 
 
 
+body.dark-mode .dashboard-card {
+    background: #242424;
+    color: #f5f5f5;
+}
+
+
 
