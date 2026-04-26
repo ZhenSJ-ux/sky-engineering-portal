@@ -1,34 +1,68 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %}  <!-- inherits layout from base template -->
 
-{% block content %}
+{% block content %}  <!-- start of page content -->
 
-<h1 class="page-title">Dashboard</h1>
+<h1 class="page-title">Dashboard</h1>  <!-- page heading -->
 
 <div class="dashboard-grid">
+
+    <!-- Card showing total number of teams -->
     <div class="dashboard-card">
         <h3>Total Teams</h3>
-        <p class="big-number">{{ team_count }}</p>
+        <p class="big-number">{{ team_count }}</p>  <!-- value from view -->
     </div>
 
+    <!-- Card showing total number of meetings -->
     <div class="dashboard-card">
         <h3>Total Meetings</h3>
-        <p class="big-number">{{ meeting_count }}</p>
+        <p class="big-number">{{ meeting_count }}</p>  <!-- value from view -->
     </div>
 
+    <!-- Card showing upcoming meetings -->
     <div class="dashboard-card">
         <h3>Upcoming Meetings</h3>
         <ul>
-            {% for meeting in upcoming_meetings %}
+            {% for meeting in upcoming_meetings %}  <!-- loop through meetings -->
                 <li>{{ meeting.title }} - {{ meeting.date }}</li>
-            {% empty %}
+            {% empty %}  <!-- if no meetings -->
                 <li>No upcoming meetings</li>
             {% endfor %}
         </ul>
     </div>
+
 </div>
 
+<!-- Link to teams page -->
 <div class="link-row">
     <a href="{% url 'team_list' %}" class="btn">Go to Teams</a>
 </div>
 
-{% endblock %}
+<div class="dashboard-bottom">
+
+    <!-- Progress section -->
+    <div class="dashboard-card progress-card">
+        <h3>Progress to finishing the current project:</h3>
+
+        <!-- Circular progress using CSS conic-gradient -->
+        <div class="progress-circle"
+             style="background: conic-gradient(#8a5cff 0% {{ progress }}%, #ddd {{ progress }}% 100%);">
+            <span>{{ progress }}%</span>  <!-- percentage from view -->
+        </div>
+    </div>
+
+    <!-- Upcoming tasks section -->
+    <div class="dashboard-card task-card">
+        <h3>Upcoming Tasks</h3>
+
+        <ul>
+            {% for task in upcoming_tasks %}  <!-- loop through tasks -->
+                <li>{{ task }}</li>
+            {% empty %}  <!-- if no tasks -->
+                <li>No upcoming tasks</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+
+{% endblock %}  <!-- end of content block -->

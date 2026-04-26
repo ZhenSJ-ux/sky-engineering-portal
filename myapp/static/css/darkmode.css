@@ -99,7 +99,10 @@ body.dark-mode .dashboard-card {
 
 
 
-
+body.dark-mode .progress-circle span {
+    background: #242424;
+    color: #f5f5f5;
+}
 
 
 

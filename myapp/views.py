@@ -2,9 +2,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q # imports Q to allow advanced search using OR conditions
 from django.core.mail import send_mail # imports Django email function
-from .models import Team, Meeting # imports database models
+from .models import Team, Meeting, Task # imports database models
 from .forms import EmailTeamForm, MeetingForm # imports forms used for email and meetings
 from django.utils.timezone import now
+from .models import Task
+
 
 # displays the about page
 def about(request):
@@ -106,19 +108,6 @@ def schedule_meeting(request, team_id):
         'form': form,
     })
 
-
-# displays dashboard/home page
-def home(request):
-    team_count = Team.objects.count()  # counts total teams
-    meeting_count = Meeting.objects.count()  # counts total meetings
-
-    # sends dashboard counts to template
-    return render(request, 'home.html', {
-        'team_count': team_count,
-        'meeting_count': meeting_count
-    })
-
-
 # displays members for a selected team
 def team_members(request, team_id):
     team = get_object_or_404(Team, id=team_id)  # gets selected team
@@ -129,13 +118,37 @@ def team_members(request, team_id):
     })
 
 
-def dashboard(request):
-    teams = Team.objects.count()
-    meetings = Meeting.objects.count()
-    upcoming_meetings = Meeting.objects.filter(date__gte=now()).order_by('date')[:3]
+# displays dashboard/home page
+def home(request):
+    team_count = Team.objects.count() # count total number of teams
+    meeting_count = Meeting.objects.count() # count total number of meetings
 
+    # get the next 3 meetings happening today or in the future
+    upcoming_meetings = Meeting.objects.filter(
+        date__gte=now().date() # only meetings from today onwards
+    ).order_by('date', 'time')[:3] # sort by date/time and limit to 3
+
+    # get the next 5 incomplete tasks due today or later
+    upcoming_tasks = Task.objects.filter(
+        completed=False, # only tasks not finished
+        due_date__gte=now().date() # due today or later
+    ).order_by('due_date')[:5] # sort by due date and limit to 5
+
+
+    total_tasks = Task.objects.count() # count all tasks
+    completed_tasks = Task.objects.filter(completed=True).count() # count finished tasks
+
+    if total_tasks > 0:
+        progress = int((completed_tasks / total_tasks) * 100)
+    else:
+        progress = 0 # avoid division by zero if no tasks exist
+    # send all data to the home.html template
     return render(request, 'home.html', {
-        'team_count': teams,
-        'meeting_count': meetings,
-        'upcoming_meetings': upcoming_meetings
+        'team_count': team_count,
+        'meeting_count': meeting_count,
+        'upcoming_meetings': upcoming_meetings,
+        'upcoming_tasks': upcoming_tasks,
+        'progress': progress,
     })
+
+    

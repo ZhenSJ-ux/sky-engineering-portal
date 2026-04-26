@@ -91,4 +91,15 @@ class TeamMember(models.Model):
     occupation = models.CharField(max_length=100, blank=True)  # optional job title
 
     def __str__(self):
-        return f"{self.name} ({self.team.name})"
+        return f"{self.name} ({self.team.name})"# returns a readable name for the object
+
+
+
+        
+class Task(models.Model):
+    title = models.CharField(max_length=200) # stores the task title
+    due_date = models.DateField() # stores the deadline of the task
+    completed = models.BooleanField(default=False)  # stores whether the task is finished
+
+    def __str__(self):
+        return self.title  # returns the task title when the object is displayed
