@@ -29,12 +29,12 @@ body {
 /* logo styling */
 /* logo styling */
 .logo {
-    display: block;                 /* 🔥 makes <a> behave like div */
+    display: block;                 
     font-size: 40px;
     font-weight: bold;
 
     margin-bottom: 30px;
-    padding-left: 6px;              /* 🔥 aligns with sidebar items */
+    padding-left: 6px;              
     padding-top: 4px;
 
     text-decoration: none;
@@ -101,7 +101,7 @@ body {
 /* icon container */
 .top-icons {
     display: flex;
-    gap: 14px; /* spacing between icons */
+    gap: 30px; /* spacing between icons */
     align-items: center;
 }
 
@@ -248,6 +248,18 @@ ul.clean-list {
     font-weight: bold;
     margin-top: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

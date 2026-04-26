@@ -31,7 +31,15 @@
         <!-- main content -->
         <main class="main">
             <header class="topbar">
-                <input type="text" placeholder="Search teams, members or locations..." class="top-search">
+                <form method="GET" action="{% url 'team_list' %}" class="top-search-form">
+            <input 
+                    type="text" 
+                    name="q" 
+                    placeholder="Search teams, members or locations..." 
+                    class="top-search"
+                    value="{{ query|default:'' }}"
+                    >
+            </form>
 
                 <div class="top-icons">
                     <button id="theme-toggle" class="icon-btn" type="button">🌙</button>

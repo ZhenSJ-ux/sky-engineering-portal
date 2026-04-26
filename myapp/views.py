@@ -22,10 +22,14 @@ def team_list(request):
     # filters teams if user searched something
     if query:
         teams = teams.filter(
-            Q(name__icontains=query) |  # searches team name
-            Q(manager_name__icontains=query) |  # searches manager name
-            Q(department__icontains=query)  # searches department
-        )
+            Q(name__icontains=query) |
+            Q(manager_name__icontains=query) |
+            Q(manager_email__icontains=query) |
+            Q(department__icontains=query) |
+            Q(members__name__icontains=query) |
+            Q(members__role__icontains=query) |
+            Q(members__occupation__icontains=query)
+        ).distinct()
 
     # sends teams and search query to template
     return render(request, 'team_list.html', {

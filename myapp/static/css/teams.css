@@ -6,7 +6,10 @@
     display: flex; /* horizontal layout */
     gap: 10px; /* space between input and button */
 }
-
+.top-search-form { /* top search bar*/
+    width: 420px;
+    max-width: 100%;
+}
 /* search input field */
 .search-row input {
     width: 320px; /* fixed width */
